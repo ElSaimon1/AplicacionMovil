@@ -1,0 +1,27 @@
+<ion-app>
+
+  <ion-content>
+    <div class="contenedor">
+      <ion-card>
+        <ion-card-header>
+          <img src="../../../assets/imagenes/Icono-Perfil-Default.png" alt="Perfil Default" />
+          <br>
+          <ion-card-title>Iniciar session</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input type="text" label="Nombre" [(ngModel)]="nombre" placeholder="Escibre tu nombre"></ion-input>
+          <ion-input type="text" label="Contraseña" [(ngModel)]="LaContra" placeholder="Escibre tu nombre"></ion-input>
+      
+          <ion-row>
+            <ion-col size="6">
+              <ion-button (click)="Registarse()"expand="block">Registarse</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button (click)="ValidarCampo()" expand="block">Iniciar Session</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+</ion-app>
