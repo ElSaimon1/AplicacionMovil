@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-app>
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="Menu1"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>perfil</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+
+  <ion-content>
+    <div class="cuadrado">
+      <div class="contenedor">
+        <img class="foto" src="../../../assets/imagenes/caraRoblox.jpg" alt="Foto de perfil">
+      </div>
+      <p class="texto">
+        Nicolas Pabes <br>
+        25 años <br>
+        chileno <br>
+        valparaiso 
+      </p>
+    </div>
+    <br>
+    <div class="cuadrado">
+      <div class="contenedor">
+        <img class="foto" src="../../../assets/imagenes/FotoPerro.jpg" alt="Foto de perfil">
+      </div>
+      <p class="texto">
+        Terremoto <br>
+        5 años <br>
+        vizsla <br>
+        valparaiso <br>
+        masculino
+      </p>
+    </div>
+
+    <div class="publicacion">
+      <div class="contenedor">
+        <img class="imagenPublicacion" src="../../../assets/imagenes/Terremoto de pequeño.jpg" alt="Foto de perfil">
+      </div>
+      <p></p>
+    </div>
+
+    <div class="publicacion">
+      <div class="contenedor">
+        <img class="imagenPublicacion" src="../../../assets/imagenes/Terremoto en el agua.jpg" alt="Foto de perfil">
+      </div>
+      <p></p>
+    </div>
+
+    <div class="publicacion">
+      <div class="contenedor">
+        <img class="imagenPublicacion" src="../../../assets/imagenes/Terremoto modo playa.jpg" alt="Foto de perfil">
+      </div>
+      <p></p>
+    </div>
+
+  </ion-content>
+
+</ion-app>
