@@ -15,32 +15,53 @@
     </div>
 
     <div class="publicacion">
-      <div class="contenedor">
-        <img class="imagenVosetoChat" src="../../../assets/imagenes/vocetowasa.png" alt="Foto de perfil">
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="publicacion">
-      <div class="contenedor">
-        <img class="imagenPublicacion" src="../../../assets/imagenes/publicaion1.jpg" alt="Foto de perfil">
-      </div>
-      <p class="texto">mi pequeño</p>
+      <ion-buttons [routerLink]="['/chat']">
+        <div class="contenedor">
+          <img class="imagenVosetoChat" src="../../../assets/imagenes/vocetowasa.png" alt="Foto de perfil">
+        </div>
+      </ion-buttons>
     </div>
 
-    <div class="publicacion">
-      <div class="contenedor">
-        <img class="imagenPublicacion" src="../../../assets/imagenes/publicaion2.jpg" alt="Foto de perfil">
-      </div>
-      <p class="texto">junto a mi mejor amigo</p>
-    </div>
+    <br>
+    <br>
 
-    <div class="publicacion">
-      <div class="contenedor">
-        <img class="imagenPublicacion" src="../../../assets/imagenes/publicacion3.jpg" alt="Foto de perfil">
-      </div>
-      <p class="texto">foto familiar</p>
-    </div>
+    <ion-card>
+      <ion-card-content>
+        <div class="publicacion">
+          <div class="contenedor">
+            <img class="imagenPublicacion" src="../../../assets/imagenes/publicaion1.jpg" alt="Foto de perfil">
+          </div>
+          <p class="texto">mi pequeño</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="publicacion">
+          <div class="contenedor">
+            <img class="imagenPublicacion" src="../../../assets/imagenes/publicaion2.jpg" alt="Foto de perfil">
+          </div>
+          <p class="texto">junto a mi mejor amigo</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <div class="publicacion">
+          <div class="contenedor">
+            <img class="imagenPublicacion" src="../../../assets/imagenes/publicacion3.jpg" alt="Foto de perfil">
+          </div>
+          <p class="texto">foto familiar</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="play()">Play</ion-button>
+    <ion-button (click)="pause()">Pause</ion-button>
+    <ion-button (click)="stop()">Stop</ion-button>
+
   </ion-content>
 
 </ion-app>

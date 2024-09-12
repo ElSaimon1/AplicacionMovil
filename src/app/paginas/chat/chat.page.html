@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="Menu1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulos">Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let message of messages" [ngClass]="{ 'mine': message.sender === 'Tú' }">
+      <ion-avatar slot="start" *ngIf="message.sender !== 'Tú'">
+        <img [src]="message.avatar" alt="{{ message.sender }}'s avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ message.sender }}</h2>
+        <p>{{ message.text }}</p>
+      </ion-label>
+      <ion-avatar slot="end" *ngIf="message.sender === 'Tú'">
+        <img [src]="message.avatar" alt="Tu avatar">
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..."></ion-input>
+      <ion-buttons slot="end">
+        <ion-button (click)="sendMessage()">Enviar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'registrarse',
     loadChildren: () => import('./paginas/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./paginas/chat/chat.module').then( m => m.ChatPageModule)
+  },
+
 ];
 
 @NgModule({
