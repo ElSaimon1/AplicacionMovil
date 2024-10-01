@@ -35,13 +35,18 @@ export class RegistrarsePage {
   Vacio(x: string) {
     return x.trim().length === 0;
   }
+
+  NoVacio(x: string) {
+    return x.trim().length !== 0;
+  }
+
   Registarse() {
 
     if (this.Vacio(this.nombre) || this.Vacio(this.LaContra)|| this.Vacio(this.LaContra2)) {
       this.MensajeCamposVasios("Contraseña y/o usuario campo(s) vacio(s)")
     }
 
-    if ((this.nombre!=="") && (this.LaContra ===this.LaContra2)) {
+    if ((this.nombre!=="") && (this.LaContra ===this.LaContra2) && this.NoVacio(this.LaContra) && this.NoVacio(this.LaContra2)) {
       console.log("Registro Exitoso")
       this.RegistroValido()
       this.router.navigate(["/home"])

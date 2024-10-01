@@ -1,0 +1,40 @@
+ion-item {
+    --padding-start: 0;
+    --padding-end: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre mensajes */
+  }
+  
+  ion-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  ion-avatar[slot='start'] {
+    margin-right: 10px;
+  }
+  
+  ion-avatar[slot='end'] {
+    margin-left: 10px;
+  }
+  
+  ion-item.mine {
+    justify-content: flex-end; /* Alinea el contenido del mensaje al final (derecha) */
+  }
+  
+  ion-label {
+    background: #f0f0f0; /* Fondo gris claro para mensajes de otros usuarios */
+    color: #000000; /* Texto negro para mensajes de otros usuarios */
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin-right: 50px; /* Espacio entre el texto y el avatar del usuario */
+  }
+  
+  ion-item.mine ion-label {
+    background: #007bff; /* Fondo azul para mensajes del usuario */
+    color: white; /* Texto blanco para mensajes del usuario */
+    margin-right: 10px; /* Menos espacio entre el texto y el avatar del usuario */
+  }

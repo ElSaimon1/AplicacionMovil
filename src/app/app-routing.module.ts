@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -31,6 +31,23 @@ const routes: Routes = [
     path: 'registrarse',
     loadChildren: () => import('./paginas/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./paginas/chat/chat.module').then( m => m.ChatPageModule)
+  },  {
+    path: 'publicacion',
+    loadChildren: () => import('./paginas/publicacion/publicacion.module').then( m => m.PublicacionPageModule)
+  },
+  {
+    path: 'agregar-perro',
+    loadChildren: () => import('./paginas/agregar-perro/agregar-perro.module').then( m => m.AgregarPerroPageModule)
+  },
+  {
+    path: 'agregar-punto-encuentro',
+    loadChildren: () => import('./paginas/agregar-punto-encuentro/agregar-punto-encuentro.module').then( m => m.AgregarPuntoEncuentroPageModule)
+  },
+
+
 ];
 
 @NgModule({

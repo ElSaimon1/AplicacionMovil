@@ -1,0 +1,5 @@
+1.- Powershell administrador
+
+2.- Set-ExecutionPolicy Unrestricted -force
+
+3.- si deseas desabilitar la inscripcin de scipts usa Set-ExecutionPolicy Restricted -force
