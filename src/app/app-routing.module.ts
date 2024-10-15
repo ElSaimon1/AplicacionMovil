@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'agregar-punto-encuentro',
     loadChildren: () => import('./paginas/agregar-punto-encuentro/agregar-punto-encuentro.module').then( m => m.AgregarPuntoEncuentroPageModule)
   },
+  {
+    path: 'info-perro',
+    loadChildren: () => import('./paginas/info-perro/info-perro.module').then( m => m.InfoPerroPageModule)
+  },
 
 
 ];
