@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369233927206",
+    "project_id": "seecion6duocv",
+    "storage_bucket": "seecion6duocv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369233927206:android:f4f123b225d0a467b29ae7",
+        "android_client_info": {
+          "package_name": "seccion6.duoc.v"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC16LwqYSB5dsavdqNj3lmfmSYb-pces4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

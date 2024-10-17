@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,7 +13,7 @@ export class LoginPage {
   LaContra: string = ""
 
 
-  constructor(public alerta: AlertController,private router:Router, public toast:ToastController) { }
+  constructor(public alerta: AlertController,private router:Router, public toast:ToastController, private loginFirebase:FirebaseLoginService ) { }
 
   async MensajeCamposVasios() {
     const alert = await this.alerta.create({
@@ -58,5 +59,24 @@ export class LoginPage {
   }
   Registarse() {
     this.router.navigate(["/registrarse"])
+  }
+  Ingresar(){
+    if ( this.LaContra===""||this.nombre===""){
+      console.log("NO ingresaste maquina")
+    }
+    else{
+      console.log(this.nombre,this.LaContra)
+      this.loginFirebase.login(this.nombre,this.LaContra).then(()=>{
+       
+       
+        console.log("inicio exitoso ")
+        
+        this.router.navigate(["/home"])
+      }).catch((x:string)=>{
+        console.log(x)
+
+      })
+    }
+
   }
 }
