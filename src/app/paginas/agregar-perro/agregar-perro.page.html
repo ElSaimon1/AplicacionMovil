@@ -1,13 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>agregarPerro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">agregarPerro</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="Menu1"></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="titulos">Agregar Perro</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+
+        <div class="cuadrado">
+          <div class="contenedor">
+
+            <ion-list>
+              <ion-item>
+                <div class="contenedor">
+                  <img class="foto" src="../../../assets/icon/veterinario (1).png" alt="agregar Perro">
+                </div>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Nombre Mascota:</ion-label>
+                <ion-input [(ngModel)]="agregarMascota.nombre"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Edad Mascota</ion-label>
+                <ion-input [(ngModel)]="agregarMascota.edad"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Raza Mascota</ion-label>
+                <ion-input [(ngModel)]="agregarMascota.raza"></ion-input>
+              </ion-item>
+            </ion-list>
+
+            <div style="margin: 20px;">
+              <ion-button (click)="save()" expand="block" shape="round">
+                Guardar
+              </ion-button>
+            </div>
+
+            @if (cargando) {
+              <div style="text-align: center;">
+                <ion-spinner name="bubbles"></ion-spinner>
+              </div>
+            }
+
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>
+
+</ion-app>

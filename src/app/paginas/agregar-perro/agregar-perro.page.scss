@@ -1,0 +1,30 @@
+ion-app {
+    --ion-background-color: rgb(67, 118, 108);
+}
+
+.contenedor {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.cuadradrdo {
+    border: 3px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+    height: auto;
+    background-color: rgb(177, 148, 112);
+}
+
+.titulos {
+    text-align: center;
+    color: azure;
+}
+
+.foto {
+    border-radius: 400px;
+    width: 250px;
+    height: 200px;
+}
