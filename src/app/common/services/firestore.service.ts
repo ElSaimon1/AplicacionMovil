@@ -22,8 +22,8 @@ export class FirestoreService {
   }
 
 
-  createDocumentID(data: any, enlace: string, idDoc: string) {
-    const document = doc(this.firestore, `${enlace}/${idDoc}`);
+  createDocumentID(data: any, enlace: string) {
+    const document = doc(this.firestore, `${enlace}`);
     return setDoc(document, data);
   }
 

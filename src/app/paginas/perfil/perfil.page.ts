@@ -30,6 +30,7 @@ export class PerfilPage implements OnInit {
 
   loadperro() {
     this.firestoreService.getCollectionChanges<Mascota>('Mascota').subscribe( data => { 
+      console.log(data)
       if (data) {
         this.perro = data
       }

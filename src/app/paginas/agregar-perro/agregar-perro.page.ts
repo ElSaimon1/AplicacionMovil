@@ -13,24 +13,28 @@ export class AgregarPerroPage implements OnInit {
   cargando: boolean = false;
 
   constructor(private firestoreService: FirestoreService ) { 
+
+    this.initMascota();
     
     
   }
 
-  // initMascota(){
-  //   this.agregarMascota = {
-  //     nombre: null,
-  //     edad: null,
-  //     raza: null,
-  //     //id: this.firestoreService.createIdDoc(), 
-  //   }
-  // }
+   initMascota(){
+     this.agregarMascota = {
+       nombre: null,
+       edad: null,
+       raza: null,
+       ciudad: null,
+       sexo: null,
+       //id: this.firestoreService.createIdDoc(), 
+     }
+   }
 
-  // async save() {
-  //   this.cargando = true;
-  //   await this.firestoreService.createDocumentID(this.agregarMascota, 'Mascota', this.agregarMascota.id)
-  //   this.cargando = false;
-  // }
+   async save() {
+     this.cargando = true;
+     await this.firestoreService.createDocumentID(this.agregarMascota, 'Mascota')
+     this.cargando = false;
+   }
 
   ngOnInit() {
   }

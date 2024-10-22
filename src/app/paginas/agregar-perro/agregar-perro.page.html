@@ -11,51 +11,62 @@
 
   <ion-content>
     <ion-card>
-      <ion-card-content>
 
-        <div class="cuadrado">
-          <div class="contenedor">
+      <div class="cuadrado">
+        <div class="contenedor">
 
-            <ion-list>
-              <ion-item>
-                <div class="contenedor">
-                  <img class="foto" src="../../../assets/icon/veterinario (1).png" alt="agregar Perro">
-                </div>
-              </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Nombre Mascota:</ion-label>
-                <ion-input [(ngModel)]="agregarMascota.nombre"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Edad Mascota</ion-label>
-                <ion-input [(ngModel)]="agregarMascota.edad"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Raza Mascota</ion-label>
-                <ion-input [(ngModel)]="agregarMascota.raza"></ion-input>
-              </ion-item>
-            </ion-list>
-
-            <!-- <div style="margin: 20px;">
-              <ion-button (click)="save()" expand="block" shape="round">
-                Guardar
-              </ion-button>
-            </div> -->
-
-            @if (cargando) {
-              <div style="text-align: center;">
-                <ion-spinner name="bubbles"></ion-spinner>
+          <ion-list>
+            <ion-item>
+              <div class="contenedor">
+                <img class="foto" src="../../../assets/icon/veterinario (1).png" alt="agregar Perro">
               </div>
-            }
+            </ion-item>
 
-          </div>
+            <ion-item>
+              <ion-label position="floating">Nombre Mascota:</ion-label>
+              <ion-input [(ngModel)]="agregarMascota.nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Edad Mascota</ion-label>
+              <ion-input [(ngModel)]="agregarMascota.edad"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Raza Mascota</ion-label>
+              <ion-input [(ngModel)]="agregarMascota.raza"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Ciudad Mascota</ion-label>
+              <ion-input [(ngModel)]="agregarMascota.ciudad"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Sexo Mascota</ion-label>
+              <ion-input [(ngModel)]="agregarMascota.sexo"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          
+
         </div>
+      </div>
 
-      </ion-card-content>
+      <div style="margin: 20px;">
+        <ion-button (click)="save()" expand="block" shape="round">
+          Guardar
+        </ion-button>
+      </div>
+      @if (cargando) {
+        <div style="text-align: center;">
+          <ion-spinner name="bubbles"></ion-spinner>
+        </div>
+        }
+
     </ion-card>
+    
+   
 
   </ion-content>
 
