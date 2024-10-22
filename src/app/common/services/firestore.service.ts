@@ -3,7 +3,7 @@ import { collectionData, Firestore } from '@angular/fire/firestore';
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class FirestoreService {
     return setDoc(document, data);
   }
 
-  createIdDoc() {
-    return uuidv4();
-  }
+  // createIdDoc() {
+  //   return uuidv4();
+  // }
 
 }

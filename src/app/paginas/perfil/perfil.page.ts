@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserI } from 'src/app/common/models/users.models';
+import { Mascota, UserI } from 'src/app/common/models/users.models';
 import { FirestoreService } from 'src/app/common/services/firestore.service';
 
 @Component({
@@ -11,16 +11,16 @@ export class PerfilPage implements OnInit {
 
   users: UserI[] = [];
 
-  perro: any[] = [];
+  perro: Mascota[] = [];
 
   constructor(private firestoreService: FirestoreService) { 
     this.loaduser();
+    this.loadperro();
     
   }
 
   loaduser() {
     this.firestoreService.getCollectionChanges<UserI>('Usuario').subscribe( data => { 
-      
       if (data) {
         this.users = data
       }
@@ -29,6 +29,11 @@ export class PerfilPage implements OnInit {
   }
 
   loadperro() {
+    this.firestoreService.getCollectionChanges<Mascota>('Mascota').subscribe( data => { 
+      if (data) {
+        this.perro = data
+      }
+    })
 
   }
 
