@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 
 // const { v4: uuidv4 } = require('uuid');
@@ -22,9 +22,14 @@ export class FirestoreService {
   }
 
 
-  createDocumentID(data: any, enlace: string) {
-    const document = doc(this.firestore, `${enlace}`);
-    return setDoc(document, data);
+  createDocument(data: any, enlace: string) {
+    const itemCollection = collection(this.firestore, enlace);
+    return addDoc(itemCollection, data);
+  }
+
+  deleteDocument(enlace: string){
+    const document = doc(this.firestore, enlace);
+    return deleteDoc(document);
   }
 
   // createIdDoc() {

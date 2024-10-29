@@ -17,10 +17,16 @@ import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebaseconfig),AngularFireAuthModule],
+  imports: [BrowserModule, IonicModule.forRoot(), 
+    AppRoutingModule, 
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseconfig),
+    AngularFireAuthModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
     provideFirebaseApp(() => initializeApp({"projectId":"seecion6duocv","appId":"1:369233927206:web:3d82a323955dca87b29ae7","storageBucket":"seecion6duocv.appspot.com","apiKey":"AIzaSyD6gR0_TeMeTNdV8tnQZmmRf7QPrhbwhP0","authDomain":"seecion6duocv.firebaseapp.com","messagingSenderId":"369233927206"})), 
     provideAuth(() => getAuth()), 

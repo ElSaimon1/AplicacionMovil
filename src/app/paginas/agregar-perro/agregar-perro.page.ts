@@ -16,7 +16,6 @@ export class AgregarPerroPage implements OnInit {
 
     this.initMascota();
     
-    
   }
 
    initMascota(){
@@ -26,13 +25,13 @@ export class AgregarPerroPage implements OnInit {
        raza: null,
        ciudad: null,
        sexo: null,
-       //id: this.firestoreService.createIdDoc(), 
+       id: null, 
      }
    }
 
    async save() {
      this.cargando = true;
-     await this.firestoreService.createDocumentID(this.agregarMascota, 'Mascota')
+     await this.firestoreService.createDocument(this.agregarMascota, 'Mascota')
      this.cargando = false;
    }
 

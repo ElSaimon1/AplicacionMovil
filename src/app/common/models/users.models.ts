@@ -3,7 +3,7 @@ export interface UserI {
     edad: number;
     nacionalidad: string;
     ciudad: string;
-    //id: string;
+    id: string;
 }
 
 export interface Mascota {
@@ -12,5 +12,5 @@ export interface Mascota {
     raza: string;
     ciudad: string;
     sexo: string;
-    //id: string;
+    id: string;
 }
