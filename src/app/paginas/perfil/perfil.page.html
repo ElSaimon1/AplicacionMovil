@@ -68,26 +68,6 @@
             <ion-label>Sexo: {{ma.sexo}}</ion-label>
           </ion-item>
 
-          <ion-buttons slot="end">
-
-            <!-- <ion-button (click)="edit(ma)" >
-              <ion-icon slot="icon-only" name="create" style="right: auto;"></ion-icon>
-            </ion-button> -->
-
-            <ion-button (click)="delete(ma)" >
-              <ion-icon slot="icon-only" name="trash" style="left: auto;"></ion-icon>
-            </ion-button>
-
-            @if (cargando) {
-              <div style="text-align: center;">
-                <ion-spinner name="bubbles"></ion-spinner>
-              </div>
-              }
-
-          </ion-buttons>
-
-
-
         </ion-list>
       </div>
     </div>

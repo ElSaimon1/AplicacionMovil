@@ -11,29 +11,46 @@ export class AgregarPerroPage implements OnInit {
 
   agregarMascota: Mascota;
   cargando: boolean = false;
+  perro: Mascota[] = [];
 
-  constructor(private firestoreService: FirestoreService ) { 
+  constructor(private firestoreService: FirestoreService) {
 
     this.initMascota();
-    
+    this.loadperro();
+
   }
 
-   initMascota(){
-     this.agregarMascota = {
-       nombre: null,
-       edad: null,
-       raza: null,
-       ciudad: null,
-       sexo: null,
-       id: null, 
-     }
-   }
+  initMascota() {
+    this.agregarMascota = {
+      nombre: null,
+      edad: null,
+      raza: null,
+      ciudad: null,
+      sexo: null,
+      id: this.firestoreService.createIdDoc(),
+    }
+  }
 
-   async save() {
-     this.cargando = true;
-     await this.firestoreService.createDocument(this.agregarMascota, 'Mascota')
-     this.cargando = false;
-   }
+  loadperro() {
+    this.firestoreService.getCollectionChanges<Mascota>('Mascota').subscribe(data => {
+      if (data) {
+        this.perro = data
+      }
+
+    })
+  }
+
+  async save() {
+    this.cargando = true;
+    await this.firestoreService.createDocumentID(this.agregarMascota, 'Mascota', this.agregarMascota.id)
+    this.cargando = false;
+  }
+
+  async delete(perro: Mascota) {
+    this.cargando = true;
+    await this.firestoreService.deleteDocumentID('Mascota', perro.id);
+    this.cargando = false;
+  }
 
   ngOnInit() {
   }

@@ -59,12 +59,6 @@ export class PerfilPage implements OnInit {
   //   this.agregarMascota = perro;
   // }
 
-  async delete(perro: Mascota) {
-    this.cargando = true;
-    await this.firestoreService.deleteDocument('Mascota');
-    this.cargando = false;
-  }
-
   async ngOnInit() {
     const storage = await this.storage.create();
     this.perro = await this.storage.get("id");
