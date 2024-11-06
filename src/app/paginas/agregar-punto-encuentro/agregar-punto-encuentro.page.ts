@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-punto-encuentro',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarPuntoEncuentroPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  irAlMapa() {
+    this.router.navigate(['/mapa']);
+  }
 
   ngOnInit() {
   }

@@ -34,7 +34,8 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./paginas/chat/chat.module').then( m => m.ChatPageModule)
-  },  {
+  },
+  {
     path: 'publicacion',
     loadChildren: () => import('./paginas/publicacion/publicacion.module').then( m => m.PublicacionPageModule)
   },
@@ -47,8 +48,16 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/agregar-punto-encuentro/agregar-punto-encuentro.module').then( m => m.AgregarPuntoEncuentroPageModule)
   },
   {
+    path: 'mapa',
+    loadChildren: () => import('./paginas/mapa-junta/mapa-junta.module').then(m => m.MapaJuntaPageModule)
+  },
+  {
     path: 'info-perro',
     loadChildren: () => import('./paginas/info-perro/info-perro.module').then( m => m.InfoPerroPageModule)
+  },
+  {
+    path: 'mapa-junta',
+    loadChildren: () => import('./paginas/mapa-junta/mapa-junta.module').then( m => m.MapaJuntaPageModule)
   },
 
 
