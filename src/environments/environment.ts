@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   firebaseconfig:{
   apiKey:'AIzaSyC16LwqYSB5dsavdqNj3lmfmSYb-pces4c',
-  authDomain:'seecion6duocv.appspot.com',
+  authDomain:'seecion6duocv.firebasestorage.app',
   projectId:'seecion6duocv',
-  storageBucket:'seecion6duocv.appspot.com',
+  storageBucket:'seecion6duocv.firebasestorage.app',
   messagingSenderId:'369233927206',
   appId:'1:369233927206:android:f4f123b225d0a467b29ae7'
   } 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service'
 @Component({
   selector: 'app-registrarse',
   templateUrl: './registrarse.page.html',
@@ -8,18 +9,22 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class RegistrarsePage {
   nombre: string = ""
-  LaContra: string = ""
-  LaContra2: string = ""
+  edad: string = ""
+  ciudad: string = ""
+  pais: string = ""
+  correo: string = ""
+  laContra: string = ""
+  laContra2: string = ""
+  mensaje: string
 
 
 
+  constructor(public alerta: AlertController, private router: Router, public toast: ToastController,private access:FirebaseLoginService) { }
 
-  constructor(public alerta: AlertController,private router:Router, public toast:ToastController) { }
-
-  async MensajeCamposVasios(x:string) {
+  async MensajeCamposVasios() {
     const alert = await this.alerta.create({
-      header: 'Error de inicio',
-      message: x,
+      header: 'Error de Registro',
+      message: this.mensaje,
       buttons: ['Aceptar']
     });
 
@@ -35,50 +40,71 @@ export class RegistrarsePage {
   Vacio(x: string) {
     return x.trim().length === 0;
   }
-
-  NoVacio(x: string) {
-    return x.trim().length !== 0;
-  }
-
-  Registarse() {
-
-    if (this.Vacio(this.nombre) || this.Vacio(this.LaContra)|| this.Vacio(this.LaContra2)) {
-      this.MensajeCamposVasios("Contraseña y/o usuario campo(s) vacio(s)")
-    }
-
-    if ((this.nombre!=="") && (this.LaContra ===this.LaContra2) && this.NoVacio(this.LaContra) && this.NoVacio(this.LaContra2)) {
-      console.log("Registro Exitoso")
-      this.RegistroValido()
-      this.router.navigate(["/home"])
-    }
-
-    if  (this.LaContra !==this.LaContra2) {
-      this.MensajeCamposVasios("Contraseña No Repetida")
-    }
-
-    if (this.Vacio(this.nombre)) {
-      console.log("Escribe Usuario")
-    }
-    else {
-      console.log("Nombre Usuario")
-    }
-
-    if (this.Vacio(this.LaContra)) {
-      console.log("Escribe Contraseña")
-    }
-    else {
-      console.log("Contrasena escrita")
-    }
-  
-    if (this.Vacio(this.LaContra2)){
-      console.log("Escribe Contraseña 2")
-    }
-    else{
-      console.log("Contraseña 2 escrita")
-    }
-
+  VacioN(x: string) {
+    return x.length === 0;
   }
   InicioSession() {
     this.router.navigate(["/login"])
   }
+  ValidarCorreo(correo: string) {
+    const patron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return patron.test(correo);
+  }
+  ValidarCampos() {
+    this.mensaje = ""
+    if ((this.Vacio(this.nombre)) || (this.VacioN(this.edad)) || (this.Vacio(this.ciudad)) || (this.Vacio(this.pais))
+      || (this.Vacio(this.correo)) || (this.Vacio(this.laContra)) || (this.Vacio(this.laContra2))
+      || (this.laContra != this.laContra2) || (this.ValidarCorreo(this.correo)==false)||(parseInt(this.edad)>=99)||(parseInt(this.edad)<0)) {
+      if (this.Vacio(this.nombre)) {
+        this.mensaje = this.mensaje + "-Nombre Campo Vacio\n"
+        console.log(this.Vacio(this.nombre))
+      }
+      if (this.VacioN(this.edad)) {
+        this.mensaje = this.mensaje + "-Edad Campo Vacio\n"
+      }
+      if (this.Vacio(this.ciudad)) {
+        this.mensaje = this.mensaje + "-Ciudad Campo Vacio\n"
+      }
+      if (this.Vacio(this.pais)) {
+        this.mensaje = this.mensaje + "-Pais Campo Vacio\n"
+      }
+      if (this.Vacio(this.correo)) {
+        this.mensaje = this.mensaje + "-Correo Campo Vacio\n"
+      }
+      if (this.Vacio(this.laContra)) {
+        this.mensaje = this.mensaje + "-Contraseña Campo Vacio\n"
+      }
+      if (this.Vacio(this.laContra2)) {
+        this.mensaje = this.mensaje + "-Segunda Contraseña Campo Vacio\n"
+      }
+      if (this.laContra != this.laContra2) {
+        this.mensaje = this.mensaje + "-las Contraseñas no coinciden\n"
+      }
+      if (this.ValidarCorreo(this.correo)==false) {
+        this.mensaje = this.mensaje + "-Correo Invalido\n"
+      }
+      if (this.laContra.length< 6) {
+        this.mensaje = this.mensaje + "-La Contreaseña deve tener minimo 6 caracteres\n"
+      }
+      if ((parseInt(this.edad)>=99)||(parseInt(this.edad)<0)){
+        this.mensaje = this.mensaje + "-Edad No Valida\n"
+      }
+      this.MensajeCamposVasios()
+    } else {
+      this.mensaje = "ok"
+    }
+    console.log(this.mensaje)
+  }
+  ngOnInit() {
+  }
+  async registrarse() {
+    this.ValidarCampos()
+    if (this.mensaje == "ok") {
+      console.log("se registra")
+      await this.access.create_user(this.correo,this.laContra,this.nombre,this.ciudad,this.edad,this.pais)
+      this.router.navigate(["/home"])
+    }
+  }
+
+
 }
