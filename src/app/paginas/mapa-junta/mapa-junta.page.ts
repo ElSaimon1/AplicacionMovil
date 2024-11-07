@@ -25,7 +25,7 @@ export class MapaJuntaPage implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map', // El contenedor ID en el HTML
       style: 'mapbox://styles/mapbox/streets-v11', // Estilo del mapa
-      center: [-74.5, 40], // Coordenadas iniciales [lng, lat]
+      center: [-71.5329128497927, -33.03375647398299], // Coordenadas iniciales [lng, lat]
       zoom: 9 // Nivel de zoom inicial
     });
 
