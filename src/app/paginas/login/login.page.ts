@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
+import { Storage } from '@ionic/storage-angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +15,16 @@ export class LoginPage {
   LaContra: string = ""
 
 
-  constructor(public alerta: AlertController,private router:Router, public toast:ToastController, private loginFirebase:FirebaseLoginService ) { }
+  constructor(public alerta: AlertController, 
+              private router:Router, 
+              public toast:ToastController, 
+              private loginFirebase:FirebaseLoginService,
+              private storage: Storage ) { }
+
+   // crear storage
+   async ngOnInit() {
+    await this.storage.create();
+  }
 
   async MensajeCamposVasios() {
     const alert = await this.alerta.create({
@@ -66,17 +77,12 @@ export class LoginPage {
     }
     else{
       console.log(this.nombre,this.LaContra)
-      this.loginFirebase.login(this.nombre,this.LaContra).then(()=>{
-       
-       
+      this.loginFirebase.login(this.nombre,this.LaContra).then(()=>{ 
         console.log("inicio exitoso ")
-        
-        this.router.navigate(["/home"])
-      }).catch((x:string)=>{
-        console.log(x)
-
-      })
+        this.router.navigate(["/home"]) }).catch((x:string)=>{console.log(x)})
     }
 
+    //guardar informacion
+  this.storage.set("nombreUsuario",this.nombre)
   }
 }

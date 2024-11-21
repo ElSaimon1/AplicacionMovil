@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChildren } from '@angular/core';
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomePage {
 
   private animation!: Animation;
 
-  constructor(private animationCtrl: AnimationController) {}
+  constructor(private animationCtrl: AnimationController, private storage: Storage) {}
 
     ngAfterViewInit() {
       const cardA = this.animationCtrl
