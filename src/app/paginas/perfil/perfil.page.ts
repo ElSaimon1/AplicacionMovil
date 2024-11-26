@@ -61,7 +61,7 @@ export class PerfilPage implements OnInit {
 
   async ngOnInit() {
     const storage = await this.storage.create();
-    this.perro = await this.storage.get("id");
   }
+  
 
 }

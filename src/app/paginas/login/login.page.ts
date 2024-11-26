@@ -83,6 +83,6 @@ export class LoginPage {
     }
 
     //guardar informacion
-  this.storage.set("nombreUsuario",this.nombre)
+    this.storage.set("nombreUsuario", this.nombre)
   }
 }
