@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseconfig:{
+  firebaseConfig:{
   apiKey:'AIzaSyC16LwqYSB5dsavdqNj3lmfmSYb-pces4c',
   authDomain:'seecion6duocv.firebasestorage.app',
   projectId:'seecion6duocv',

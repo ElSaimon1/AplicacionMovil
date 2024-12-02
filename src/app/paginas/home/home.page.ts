@@ -3,7 +3,7 @@ import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
-
+import {FirebaseLoginService} from 'src/app/servicios/firebase-login.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,7 +14,7 @@ export class HomePage {
 
   private animation!: Animation;
 
-  constructor(private animationCtrl: AnimationController, private storage: Storage) {}
+  constructor(private animationCtrl: AnimationController, private storage: Storage, private conexion:FirebaseLoginService) {}
 
     ngAfterViewInit() {
       const cardA = this.animationCtrl
@@ -70,7 +70,9 @@ export class HomePage {
       let mascota = await this.storage.get("mascota")
       console.log("el nombre guardado es: " + nombre )
     }
-
+    cerrarsesion(){
+      this.conexion.logout();
+    }
   }
 
   

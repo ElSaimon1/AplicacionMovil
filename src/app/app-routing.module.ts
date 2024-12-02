@@ -11,10 +11,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'perfil',
-    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
+  
   {
     path: 'animaciones',
     loadChildren: () => import('./paginas/animaciones/animaciones.module').then( m => m.AnimacionesPageModule)
@@ -40,14 +37,6 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/publicacion/publicacion.module').then( m => m.PublicacionPageModule)
   },
   {
-    path: 'agregar-perro',
-    loadChildren: () => import('./paginas/agregar-perro/agregar-perro.module').then( m => m.AgregarPerroPageModule)
-  },
-  {
-    path: 'agregar-punto-encuentro',
-    loadChildren: () => import('./paginas/agregar-punto-encuentro/agregar-punto-encuentro.module').then( m => m.AgregarPuntoEncuentroPageModule)
-  },
-  {
     path: 'mapa',
     loadChildren: () => import('./paginas/mapa-junta/mapa-junta.module').then(m => m.MapaJuntaPageModule)
   },
@@ -58,7 +47,11 @@ const routes: Routes = [
   {
     path: 'mapa-junta',
     loadChildren: () => import('./paginas/mapa-junta/mapa-junta.module').then( m => m.MapaJuntaPageModule)
+  },  {
+    path: 'perfil',
+    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
+
 
 
 ];
