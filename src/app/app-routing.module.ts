@@ -11,7 +11,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  
+
   {
     path: 'animaciones',
     loadChildren: () => import('./paginas/animaciones/animaciones.module').then( m => m.AnimacionesPageModule)
@@ -47,9 +47,17 @@ const routes: Routes = [
   {
     path: 'mapa-junta',
     loadChildren: () => import('./paginas/mapa-junta/mapa-junta.module').then( m => m.MapaJuntaPageModule)
-  },  {
+  },
+  {
     path: 'perfil',
     loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'agregar-mascota',
+    loadChildren: () => import('./paginas/agregar-mascota/agregar-mascota.module').then( m => m.AgregarMascotaPageModule)
+  },{
+    path: 'agregar-punto-encuentro',
+    loadChildren: () => import('./paginas/agregar-punto-encuentro/agregar-punto-encuentro.module').then( m => m.AgregarPuntoEncuentroPageModule)
   },
 
 

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>AgregarMascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">AgregarMascota</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-app>
+    <ion-content>
+      <div class="contenedor">
+        <ion-card>
+          <ion-card-header>
+            
+            <br>
+            <ion-card-title>Registrarse</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-input type="text" label="Nombre" [(ngModel)]="nombre" placeholder="Nombre de Mascota"></ion-input>
+            <ion-input type="text" label="edad" [(ngModel)]="edad" ></ion-input>
+            <ion-input type="text" label="raza" [(ngModel)]="raza" placeholder="raza de la mascota"></ion-input>
+            <ion-input type="text" label="sexo" [(ngModel)]="sexo" placeholder="Sexo mascota"></ion-input>
+            <ion-input type="email" label="ciudad" [(ngModel)]="ciudad" placeholder="Cuidad mascota"></ion-input>
+            <ion-row>
+              <ion-col size="6">
+                <ion-button (click)="agregarMascota()"expand="block">Agregar Mascota</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-content>
+  </ion-app>
+</ion-content>

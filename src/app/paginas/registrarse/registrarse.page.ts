@@ -102,7 +102,7 @@ export class RegistrarsePage {
     if (this.mensaje == "ok") {
       console.log("se registra")
       await this.access.create_user(this.correo,this.laContra,this.nombre,this.ciudad,this.edad,this.pais)
-      this.router.navigate(["/home"])
+      this.router.navigate(["/login"])
     }
   }
 
