@@ -95,7 +95,7 @@ export class LoginPage {
     }
     else{
       console.log(this.nombre,this.LaContra)
-      this.loginFirebase.login(this.nombre,this.LaContra).then(()=>{
+      this.loginFirebase.loginWithUsername(this.nombre,this.LaContra).then(()=>{
         const uid = this.access.GetUID();
         this.obtenerMascotas();
          this.access.ObtenerDatosUsuario(uid).subscribe({

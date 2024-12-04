@@ -31,8 +31,17 @@ export class FirebaseLoginService {
       uid:uid
     });
     return userCredential;
-    
+  }
+  async loginWithUsername(username: string, password: string) {
+    const userRef = this.firestore.collection('Usuario', ref => ref.where('nombre', '==', username));
+    const snapshot = await userRef.get().toPromise();
 
+    if (!snapshot || snapshot.empty) {
+      throw new Error('Usuario no encontrado');
+    }
 
+    const userData: any = snapshot.docs[0].data(); // Elimina la verificación de tipo
+    const email = userData.email; // Confías en que el campo `email` existe
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 }
