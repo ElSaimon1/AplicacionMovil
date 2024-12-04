@@ -4,6 +4,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
 import { Storage } from '@ionic/storage-angular';
 import { DatosUsuarioService } from 'src/app/servicios/datos-usuario.service';
+import { AñadirMascotaService } from 'src/app/servicios/añadir-mascota.service';
 
 @Component({
   selector: 'app-login',
@@ -22,11 +23,14 @@ export class LoginPage {
               public toast:ToastController, 
               private loginFirebase:FirebaseLoginService,
               private storage: Storage,
-              private access: DatosUsuarioService) { }
+              private access: DatosUsuarioService,
+              private hacer:AñadirMascotaService ) { }
 
    // crear storage
    async ngOnInit() {
     await this.storage.create();
+    this.storage.remove('mascotas');
+    this.storage.remove('DatosUsuario');
   }
 
   async MensajeCamposVasios() {
@@ -40,7 +44,7 @@ export class LoginPage {
   }
   async InicioValido() {
     const toast = await this.toast.create({
-      message: 'bienvendio '+this.Usuario.data.nombre,
+      message: 'bienvenido '+this.Usuario.data.nombre,
       duration: 2000
     });
     toast.present();
@@ -74,6 +78,17 @@ export class LoginPage {
   Registarse() {
     this.router.navigate(["/registrarse"])
   }
+  obtenerMascotas() {
+    this.hacer.listarMascota().subscribe(
+      async(mascotas) => {
+        console.log('Mascotas obtenidas:', mascotas);
+        await this.hacer.guardarMascotasEnStorage(mascotas);
+      },
+      (error) => {
+        console.error('Error al listar las mascotas:', error);
+      }
+    );
+  }
   async Ingresar(){
     if ( this.LaContra===""||this.nombre===""){
       console.log("NO ingresaste maquina")
@@ -82,6 +97,7 @@ export class LoginPage {
       console.log(this.nombre,this.LaContra)
       this.loginFirebase.login(this.nombre,this.LaContra).then(()=>{
         const uid = this.access.GetUID();
+        this.obtenerMascotas();
          this.access.ObtenerDatosUsuario(uid).subscribe({
           next: (usuario) => {
             if (usuario) {
@@ -103,8 +119,5 @@ export class LoginPage {
         console.log("inicio exitoso ");
         this.router.navigate(["/home"]) }).catch((x:string)=>{console.log(x)})
     }
-
-    //guardar informacion
-    this.storage.set("nombreUsuario", this.nombre)
   }
 }

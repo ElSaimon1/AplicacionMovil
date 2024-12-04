@@ -64,12 +64,7 @@ export class HomePage {
       this.animation.stop();
     }
 
-    async VerStorage() {
-      let nombre = await this.storage.get("nombreUsuario")
-      let usuario = await this.storage.get("usuario")
-      let mascota = await this.storage.get("mascota")
-      console.log("el nombre guardado es: " + nombre )
-    }
+
     cerrarsesion(){
       this.conexion.logout();
     }

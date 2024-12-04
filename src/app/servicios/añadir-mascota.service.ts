@@ -21,8 +21,14 @@ export class AñadirMascotaService {
         id_cliente: id_cliente
       });
   }
-  listarMascota():Observable <any>{
-    return this.firestore.collection('Mascotas',ref => ref.where('id_cliente','==',this.access.GetUID())).valueChanges();
+    listarMascota():Observable <any>{
+      console.log(this.access.GetUID())
+     return this.firestore.collection('Mascota',ref => ref.where('id_cliente','==',this.access.GetUID())).valueChanges();
   }
-  
+  async guardarMascotasEnStorage(mascotas: any) {
+    await this.storage.set('mascotas', mascotas);
+  }
+  async obtenerMascotasDesdeStorage(): Promise<any> {
+    return await this.storage.get('mascotas'); 
+  }
 }

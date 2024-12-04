@@ -21,3 +21,13 @@ h1 {
     justify-content: center;
     display: flex;
 }
+ion-title{
+    color: hsl(66,67%,94%);
+}
+ion-button{
+    
+    display: flex;
+    justify-content: center; 
+    --background: rgb(67, 118, 108);
+    --color: hsl(66,67%,94%);
+ }
